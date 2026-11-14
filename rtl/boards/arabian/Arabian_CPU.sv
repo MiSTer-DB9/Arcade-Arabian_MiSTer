@@ -1,4 +1,4 @@
-//  Based on MAME arabian.cpp by Dan Boris.
+// Based on MAME arabian.cpp (Dan Boris, BSD-3-Clause)
 
 module Arabian_CPU
 (
@@ -161,10 +161,10 @@ wire [10:0] ram_b_addr = hs_access ? hs_address[10:0] : mcu_ram_addr;
 wire  [7:0] ram_b_din  = hs_access ? hs_data_in       : mcu_ram_din;
 wire        ram_b_we   = hs_access ? hs_write         : mcu_ram_we;
 
-assign cram_i.a_addr = 15'(cpu_A[10:0]);
+assign cram_i.a_addr = 16'(cpu_A[10:0]);
 assign cram_i.a_d    = cpu_Dout;
 assign cram_i.a_we   = cs_customram & ~n_wr;
-assign cram_i.b_addr = 15'(ram_b_addr);
+assign cram_i.b_addr = 16'(ram_b_addr);
 assign cram_i.b_d    = ram_b_din;
 assign cram_i.b_we   = ram_b_we;
 assign customram_D   = cram_o.a_q;
@@ -272,31 +272,31 @@ reg  [15:0] vram_lo_da, vram_hi_da;
 reg         vram_we_a;
 wire [13:0] vram_addr_b;
 
-assign vl0_i.a_addr = 15'(vram_addr_a);
+assign vl0_i.a_addr = 16'(vram_addr_a);
 assign vl0_i.a_d    = vram_lo_da[7:0];
 assign vl0_i.a_we   = vram_we_a;
-assign vl0_i.b_addr = 15'(vram_addr_b);
+assign vl0_i.b_addr = 16'(vram_addr_b);
 assign vl0_i.b_d    = 8'd0;
 assign vl0_i.b_we   = 1'b0;
-assign vl1_i.a_addr = 15'(vram_addr_a);
+assign vl1_i.a_addr = 16'(vram_addr_a);
 assign vl1_i.a_d    = vram_lo_da[15:8];
 assign vl1_i.a_we   = vram_we_a;
-assign vl1_i.b_addr = 15'(vram_addr_b);
+assign vl1_i.b_addr = 16'(vram_addr_b);
 assign vl1_i.b_d    = 8'd0;
 assign vl1_i.b_we   = 1'b0;
 assign vram_lo_qa = {vl1_o.a_q, vl0_o.a_q};
 assign vram_lo_qb = {vl1_o.b_q, vl0_o.b_q};
 
-assign vh0_i.a_addr = 15'(vram_addr_a);
+assign vh0_i.a_addr = 16'(vram_addr_a);
 assign vh0_i.a_d    = vram_hi_da[7:0];
 assign vh0_i.a_we   = vram_we_a;
-assign vh0_i.b_addr = 15'(vram_addr_b);
+assign vh0_i.b_addr = 16'(vram_addr_b);
 assign vh0_i.b_d    = 8'd0;
 assign vh0_i.b_we   = 1'b0;
-assign vh1_i.a_addr = 15'(vram_addr_a);
+assign vh1_i.a_addr = 16'(vram_addr_a);
 assign vh1_i.a_d    = vram_hi_da[15:8];
 assign vh1_i.a_we   = vram_we_a;
-assign vh1_i.b_addr = 15'(vram_addr_b);
+assign vh1_i.b_addr = 16'(vram_addr_b);
 assign vh1_i.b_d    = 8'd0;
 assign vh1_i.b_we   = 1'b0;
 assign vram_hi_qa = {vh1_o.a_q, vh0_o.a_q};

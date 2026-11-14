@@ -1,4 +1,4 @@
-//  Based on MAME arabian.cpp
+// Based on MAME arabian.cpp (Dan Boris, BSD-3-Clause)
 
 module Arabian_SND
 (
