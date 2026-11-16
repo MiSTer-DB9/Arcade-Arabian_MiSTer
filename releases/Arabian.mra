@@ -38,7 +38,7 @@
         <dip name="Bonus Life"    bits="10,11" ids="None,20k only,40k only,30k 70k 40k+"/>
     </switches>
 
-    <!-- Index 0: Main CPU ROMs, 32KB flat at $0000-$7FFF (no banking on this board) -->
+    <!-- Index 0: ROM -->
     <rom index="0" md5="none" zip="arabian.zip">
         <part crc="5e1c98b8" name="ic1rev2.87"/>
         <part crc="092f587e" name="ic2rev2.88"/>
@@ -46,8 +46,7 @@
         <part crc="32b77b44" name="ic4rev2.90"/>
     </rom>
 
-    <!-- Index 2: Blitter GFX ROMs, 32KB. Addressed as two 16KB planes: bytes 0x0000-0x3FFF
-         and 0x4000-0x7FFF are fetched as a pair to build 4 pixels of 4 bits each. -->
+    <!-- Index 2: ROM -->
     <rom index="2" md5="none" zip="arabian.zip">
         <part crc="c4637822" name="tvg-91.ic84"/>
         <part crc="f7c6866d" name="tvg-92.ic85"/>
@@ -55,13 +54,12 @@
         <part crc="82160b9a" name="tvg-94.ic87"/>
     </rom>
 
-    <!-- Index 6: MB8841 (SUN 8212) internal ROM, 2KB. No protection PROM on this board. -->
+    <!-- Index 6: ROM -->
     <rom index="6" md5="none" zip="arabian.zip">
         <part crc="8869611e" name="sun-8212.ic3"/>
     </rom>
 
-
-    <!-- Index 3: hiscore config -->
+    <!-- Index 3: Hiscore -->
     <rom index="3" md5="none">
         <part>
 	    00 00 FF FF 00 FF 00 02 00 02 00 01 11 11 00 00
@@ -70,7 +68,7 @@
         </part>
     </rom>
 
-    <!-- Index 4: hiscore data. 0x3C + 0x01 = 61 bytes -->
+    <!-- Index 4: NVRAM -->
     <rom index="4"></rom>
     <nvram index="4" size="61"></nvram>
 

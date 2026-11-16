@@ -1,5 +1,5 @@
 //  Copyright (C) 2026 Rodimus
-//  Based on MAME arabian.cpp by Dan Boris
+// Based on MAME arabian.cpp (Dan Boris, BSD-3-Clause)
 
 module arabian_dispatcher
 (
@@ -84,7 +84,7 @@ chip_pool_pkg::mb88_o_t mb88_0_o;
 chip_pool_pkg::ay_i_t   ay_0_i;
 chip_pool_pkg::ayio_o_t ay_0_o;
 
-T80s #(.Mode(0), .T2Write(1), .IOWait(1)) z80_0
+t80sv_T80s #(.Mode(0), .T2Write(1), .IOWait(1)) z80_0
 (
     .RESET_n(reset), .CLK(clk_12m), .CEN(z80_0_i.ce), .INT_n(z80_0_i.int_n), .NMI_n(z80_0_i.nmi_n), .BUSRQ_n(1'b1),
     .M1_n(z80_0_o.m1_n), .MREQ_n(z80_0_o.mreq_n), .IORQ_n(z80_0_o.iorq_n), .RD_n(z80_0_o.rd_n), .WR_n(z80_0_o.wr_n),
